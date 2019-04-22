@@ -4,7 +4,6 @@
 
 double inner(long n, double* x, double* y, MPI_Comm comm) {
   double local_prod = 0;
-  #pragma omp parallel for reduction(+:local_prod)
   for (long i = 0; i < n; i++) local_prod += x[i] * y[i];
 
   double prod = 0;
